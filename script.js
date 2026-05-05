@@ -12,7 +12,7 @@ for (let btn of heartUp) {
     });
 }
 
-// Copy increase & copy functionality 
+// Copy increase & clipboard copy functionality 
 const copyUp = document.getElementsByClassName("copy");
 
 for (let btn of copyUp) {
@@ -31,3 +31,13 @@ for (let btn of copyUp) {
             });
     });
 }
+
+// clear Call History
+const clearBtn = document.getElementById("btn-clear-history");
+const historyUl = document.getElementById("call-history-list");
+const historyEmpty = document.getElementById("call-history-empty")
+clearBtn.addEventListener("click", function (){
+    historyUl.innerHTML = ""; 
+
+    historyEmpty.classList.remove("hidden"); 
+});
