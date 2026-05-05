@@ -12,12 +12,22 @@ for (let btn of heartUp) {
     });
 }
 
-// Copy increase
+// Copy increase & copy functionality 
 const copyUp = document.getElementsByClassName("copy");
 
 for (let btn of copyUp) {
     btn.addEventListener("click", function () {
-        copyCount++;
-        document.getElementById("copy-count").innerText = copyCount;
+        const number = this.getAttribute("data-number");
+
+        navigator.clipboard.writeText(number)
+            .then(() => {
+                alert("Copied: " + number);
+                
+                copyCount++;
+                document.getElementById("copy-count").innerText = copyCount;
+            })
+            .catch(err => {
+                console.error("Copy failed", err);
+            });
     });
 }
